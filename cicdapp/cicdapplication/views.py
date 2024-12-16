@@ -1,4 +1,4 @@
 from django.shortcuts import render,HttpResponse
 
 def index(request):
-    return HttpResponse("repaso testing")
+    return HttpResponse("repaso testing prueba load balancer")
