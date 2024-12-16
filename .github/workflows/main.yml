@@ -39,3 +39,15 @@ jobs:
             git pull
             sudo systemctl daemon-reload
             sudo systemctl restart cicdapp.service
+      
+       - name: Deploy to Second EC2 Instance
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST2 }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_PRIVATE_KEY }}
+          script: |
+            cd /home/ubuntu/DEVOPSCD
+            git pull
+            sudo systemctl daemon-reload
+            sudo systemctl restart cicdapp.service
